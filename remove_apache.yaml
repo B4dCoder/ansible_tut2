@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Removal of Apache
+    yum:
+      name: httpd-devel.x86_64
+      state: absent
+  
+  - name: Removal of PHP
+    yum:
+      name: php.x86_64
+      state: absent  
+...

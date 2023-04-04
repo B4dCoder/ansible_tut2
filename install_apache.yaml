@@ -1,0 +1,20 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Update Repository
+    yum:
+      update_cache: yes
+
+  - name: Installation of Apache
+    yum:
+      name: httpd-devel.x86_64
+      state: latest
+  
+  - name: Installation of PHP
+    yum:
+      name: php.x86_64
+      state: latest  
+...
