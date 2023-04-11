@@ -7,14 +7,18 @@
   - name: Update Repository
     yum:
       update_cache: yes
+    when: ansible_distribution in ["Rocky" , "Ubuntu"]
 
   - name: Installation of Apache
     yum:
       name: httpd-devel.x86_64
       state: latest
-  
+    when: ansible_distribution == "Rocky"
+
   - name: Installation of PHP
     yum:
       name: php.x86_64
-      state: latest  
+      state: latest
+    when: ansible_distribution == "Rocky"
+
 ...

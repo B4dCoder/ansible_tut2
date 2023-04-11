@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: NFS install
+    yum:
+      name: nfs-utils.x86_64
+      state: absent
