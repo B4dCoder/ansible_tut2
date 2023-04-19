@@ -4,21 +4,13 @@
   become: true
   tasks:
 
-  - name: Update Repository
+  - name: Installation of Apache and PHP packages
     yum:
+      name:
+        -  httpd-devel.x86_64
+        -  php.x86_64
+      state: latest
       update_cache: yes
-    when: ansible_distribution in ["Rocky" , "Ubuntu"]
-
-  - name: Installation of Apache
-    yum:
-      name: httpd-devel.x86_64
-      state: latest
-    when: ansible_distribution == "Rocky"
-
-  - name: Installation of PHP
-    yum:
-      name: php.x86_64
-      state: latest
     when: ansible_distribution == "Rocky"
 
 ...

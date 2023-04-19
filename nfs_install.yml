@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: install nfs package
+      package:
+        name: "{{ nfs }}"
+        state: latest
+...

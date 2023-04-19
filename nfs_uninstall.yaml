@@ -4,7 +4,8 @@
   become: true
   tasks:
 
-  - name: NFS install
+  - name: nfs remove
     yum:
       name: nfs-utils.x86_64
       state: absent
+    when: ansible_distribution == "Rocky"
